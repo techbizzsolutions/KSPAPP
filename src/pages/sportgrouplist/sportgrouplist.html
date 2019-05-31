@@ -1,0 +1,30 @@
+<ion-header>
+
+    <ion-navbar color="header">
+  
+        <ion-title>KSP APP</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+          <ion-list>
+                  <ion-item-sliding *ngFor="let item of sportsType;">
+                          <ion-item >
+                                  <h2>Sport Name: {{item.sports_type_name}}</h2>
+                                  <p>Min Age: {{item.sports_min_age}}</p>
+                              </ion-item>
+                      <ion-item-options side="right">
+                          <button ion-button color="primary" (click)="itemclick(item)">
+                              <ion-icon name="md-create"></ion-icon>
+                              Edit
+                           </button>
+                          <button ion-button color="primary" (click)="deleteitem(item)">
+                              <ion-icon name="md-trash"></ion-icon>
+                               Delete
+                           </button>
+                      </ion-item-options>
+                  </ion-item-sliding>
+              </ion-list>
+    <h5 *ngIf="!sportsType.length">No data found</h5>
+  </ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "KSPAPP",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

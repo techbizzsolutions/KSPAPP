@@ -1,0 +1,34 @@
+<ion-header>
+
+    <ion-navbar color="header">
+
+        <ion-title>KSP APP</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <h5>Sport Group</h5>
+    <form [formGroup]="Group" (ngSubmit)="create()">
+            <ion-item>
+                    <ion-label floating>Min age</ion-label>
+                    <ion-input type="number" formControlName="min_age"></ion-input>
+                </ion-item>
+                <div padding-horizontal>
+                        <div class="alert" *ngIf="!Group.controls['min_age'].valid && Group.controls['min_age'].touched">Please Enter Min age</div>
+                    </div>        
+        <ion-item>
+            <ion-label floating>Group Name</ion-label>
+            <ion-input type="text" formControlName="groupname"></ion-input>
+        </ion-item>
+        <div padding-horizontal>
+            <div class="alert" *ngIf="!Group.controls['groupname'].valid && Group.controls['groupname'].touched">Please Enter Group Name</div>
+        </div>
+        <div class="button_div">
+            <button ion-button [disabled]="!Group.valid" block>
+              Add
+        </button>
+        </div>
+    </form>
+</ion-content>

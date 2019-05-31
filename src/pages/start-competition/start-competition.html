@@ -1,0 +1,37 @@
+<ion-header>
+
+    <ion-navbar color="header">
+
+        <ion-title>KSP APP</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>Select Competition Name</ion-label>
+        <ion-select interface="popover" [(ngModel)]="Competition_Name">
+            <ion-option *ngFor="let Competition of Competitions" (ionSelect)="select(Competition)" [value]="Competition">{{Competition.name}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>Select Sport Group</ion-label>
+        <ion-select interface="popover" [(ngModel)]="Group">
+            <ion-option *ngFor="let Group of Groups" [value]="Group">{{Group.sports_type_name}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <form [formGroup]="information" (ngSubmit)="create()">
+        <ion-item>
+            <ion-label floating>BIB No.</ion-label>
+            <ion-input type="text" formControlName="bibno"></ion-input>
+        </ion-item>
+        <div padding-horizontal>
+            <div class="alert" *ngIf="!information.controls['bibno'].valid && information.controls['bibno'].touched">Please Enter BIB number</div>
+        </div>
+        <div class="button_div">
+            <button ion-button [disabled]="!information.valid" block>
+              Start
+        </button>
+        </div>
+    </form>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+
+    <ion-navbar color="header">
+  
+        <ion-title>KSP APP</ion-title>
+        <ion-buttons end>
+          <button ion-button icon-only (click)="logout()">
+                            <ion-icon name="md-log-out"></ion-icon>
+                          </button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <h4>Result User</h4>
+    <div class="button_div">
+        <button ion-button  block (click)="create()">
+            Submit
+      </button>
+    </div>
+    <h1 *ngIf="total">Total Clicks: {{total}}</h1>
+  </ion-content>
+  

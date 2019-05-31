@@ -1,0 +1,34 @@
+<ion-header>
+
+    <ion-navbar color="header">
+        <ion-buttons left>
+            <button ion-button icon-only (click)="close()">
+                        <ion-icon name="md-close-circle"></ion-icon>
+                    </button>
+        </ion-buttons>
+        <ion-title>Filter</ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+        <ion-item>
+                <ion-label>Select Competition Name</ion-label>
+                <ion-select interface="popover">
+                    <ion-option *ngFor="let Competition of Competitions" (ionSelect)="select(Competition)" [value]="Competition">{{Competition.name}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Select Sports Type</ion-label>
+              <ion-select interface="popover" [(ngModel)]="Group">
+                  <ion-option *ngFor="let Sport of Groups"  [value]="Sport">{{Sport.sports_type_name}}</ion-option>
+              </ion-select>
+          </ion-item>
+    <div class="button_div">
+        <button ion-button block (click)="view()">
+          View Report
+    </button>
+    </div>
+</ion-content>
